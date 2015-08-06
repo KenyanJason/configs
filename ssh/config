@@ -1,0 +1,9 @@
+Host personal
+HostName github.com
+IdentityFile ~/.ssh/id_rsa3
+User git 
+
+Host work
+HostName github.com
+IdentityFile ~/.ssh/id_rsa
+User git
