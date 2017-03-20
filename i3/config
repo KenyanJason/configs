@@ -205,4 +205,6 @@ bindsym $mod+r mode "resize"
 #    modifier $mod+i
 # }
 
-
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPlay exec mpc toggle

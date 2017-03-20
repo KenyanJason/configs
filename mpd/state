@@ -1,0 +1,26 @@
+sw_volume: 100
+audio_device_state:1:default detected output
+state: play
+current: 0
+time: 2.484000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Cage The Elephant 4CD [2008 - 2015] CDRIP/2015/Cage_The_Elephant-Tell_Me_Im_Pretty-2015-C4/05-cage_the_elephant-cold_cold_cold.mp3
+1:Cage The Elephant 4CD [2008 - 2015] CDRIP/2015/Cage_The_Elephant-Tell_Me_Im_Pretty-2015-C4/06-cage_the_elephant-trouble.mp3
+2:Bad Suns - Disappear Here (2016)/03. Off She Goes.mp3
+3:Bad Suns - Disappear Here (2016)/05. Even in My Dreams, I Can't Win.mp3
+4:2014 - El Pintor/01 - All the Rage Back Home.flac
+5:Chet Faker - Built On Glass (2014)/Chet Faker - 04 - Melt (feat. Kilo Kish).mp3
+6:Chet Faker - Built On Glass (2014)/Chet Faker - 05 - Gold.mp3
+7:Chet Faker - Built On Glass (2014)/Chet Faker - 02 - Talk Is Cheap.mp3
+8:Colony House - Only the Lonely/04 You & I.mp3
+9:Highly Suspect - Mister Asylum (2015)/03 Lydia.mp3
+10:Incubus - Light Grenades/Incubus - Light Grenades - 08 - Oil and Water.mp3
+11:Klaxons - Myths Of The Near Future (2007)/03 - Golden Skans.mp3
+playlist_end
