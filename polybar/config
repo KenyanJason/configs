@@ -10,7 +10,7 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #222
-background-alt = #444
+background-alt = #24292e
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
@@ -27,7 +27,7 @@ height = 27
 radius = 3.0
 fixed-center = false
 
-background = ${colors.background}
+background = #99000000
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -156,7 +156,7 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online = <label-song>          <icon-prev>     <icon-stop>     <toggle>     <icon-next>
 
 icon-prev = 
 icon-stop = 
@@ -164,7 +164,7 @@ icon-play = 
 icon-pause = 
 icon-next = 
 
-label-song-maxlen = 25
+label-song-maxlen = 70
 label-song-ellipsis = true
 
 [module/xbacklight]
