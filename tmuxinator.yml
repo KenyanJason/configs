@@ -29,20 +29,20 @@ root: ~/Documents/sav/repos/
 
 windows:
   - cm-fend:
-    - cd charge-master-authoring-frontend
+    - cd frontend-project
     - tmux splitw -v -p 50
     - tmuxselectp -t 0
     - grunt connect
     - tmux selectp -t 1
     - grunt build
   - cm-bend:
-    - cd charge-master-authoring-backend
+    - cd backend-project
     - source env.sh
-    - workon cm_backend
+    - workon cm_back
     - ./manage.py runserver
   - auth-server:
-    - cd charge-master-authoring-backend
-    - workon auth_server
+    - cd backend-project
+    - workon a_server
     - export AUTH_SERVER_DEBUG=true
     - authserver_manage runserver 9000
 
