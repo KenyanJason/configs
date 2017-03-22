@@ -49,7 +49,7 @@ set $black              #282A2E
 set $grey               #373B41
 set $lightgrey          #707880
 set $white              #ffffff
-set $yellow             #a32aff
+set $yellow             #8a2be2
 set $red                #CC6666
 set $darkred            #A54242
 set $green              #B5BD56
@@ -72,6 +72,7 @@ bindsym $mod+Tab scratchpad show
 exec --no-startup-id compton -cCGb --backend glx --vsync opengl
 exec --no-startup-id i3-battery-popup
 exec --no-startup cinnamon-screensaver
+exec --no-startup xfce4-power-manager
 bindsym XF86AudioRaiseVolume exec amixer -c 1 sset Master 10%+   #increase sound volume
 bindsym XF86AudioLowerVolume exec amixer -c 1 sset Master 10%-   #decrease sound volume
 bindsym XF86AudioMute exec amixer set-sink-mute 0 toggle         #mute sound
@@ -131,29 +132,36 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+
+set $w01 
+set $w02 2
+set $w03 3
+
 # switch to workspace
-bindcode $mod+10 workspace 1:term
-bindcode $mod+11 workspace 2:www
-bindcode $mod+12 workspace 3:vbox
-bindcode $mod+13 workspace 4:vnc
-bindcode $mod+14 workspace 5:doc
-bindcode $mod+15 workspace 6:img
-bindcode $mod+16 workspace 7:misc
+bindcode $mod+10 workspace 1:$w01
+bindcode $mod+11 workspace 2:$w02
+bindcode $mod+12 workspace 3:$w03
+bindcode $mod+13 workspace 4
+bindcode $mod+14 workspace 5
+bindcode $mod+15 workspace 6
+bindcode $mod+16 workspace 7
 bindcode $mod+17 workspace 8
 bindcode $mod+18 workspace 9
 bindcode $mod+19 workspace 10
 
 # move focused container to workspace
-bindcode $mod+Shift+10 move container to workspace 1:term
-bindcode $mod+Shift+11 move container to workspace 2:www
-bindcode $mod+Shift+12 move container to workspace 3:vbox
-bindcode $mod+Shift+13 move container to workspace 4:vnc
-bindcode $mod+Shift+14 move container to workspace 5:doc
-bindcode $mod+Shift+15 move container to workspace 6:img
-bindcode $mod+Shift+16 move container to workspace 7:misc
+bindcode $mod+Shift+10 move container to workspace 1:$w01
+bindcode $mod+Shift+11 move container to workspace 2:$w02
+bindcode $mod+Shift+12 move container to workspace 3:$w03
+bindcode $mod+Shift+13 move container to workspace 4
+bindcode $mod+Shift+14 move container to workspace 5
+bindcode $mod+Shift+15 move container to workspace 6
+bindcode $mod+Shift+16 move container to workspace 7
 bindcode $mod+Shift+17 move container to workspace 8
 bindcode $mod+Shift+18 move container to workspace 9
 bindcode $mod+Shift+19 move container to workspace 10
+
+assign [class="google-chrome-stable"] 2:$ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -208,3 +216,9 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPlay exec mpc toggle
+
+# i3-gaps
+new_window pixel 1
+gaps inner 7
+gaps outer 7
+
