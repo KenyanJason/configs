@@ -19,7 +19,7 @@ primary = #a32aff
 secondary = #e60053
 alert = #bd2c40
 
-[bar/master]
+[bar/master-top]
 wm-restack = i3
 width = 100%
 height = 27
@@ -28,34 +28,31 @@ height = 27
 radius = 3.0
 fixed-center = false
 
-background = #00000000
+background = #4D000000
 foreground = #ccffffff
 
 line-size = 3
 line-color = #f00
 
-# border-size = 2
-# border-bottom-size = 4
-# border-color = #00000000
+border-size = 4
+border-color = 4D000000
 
 padding-left = 3
-padding-right = 5
+padding-right = 2
+padding-top = 12
 
 # module-margin-left = 2
 module-margin-right = 4
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = "Wuncon Siji:pixelsize=10;1"
-font-3 = FontAwesome:size=10;0
-font-4 = "Material Icons:pixelsize:5;1"
+font-0 = fixed:pixelsize=9;1
+font-1 = unifont:fontformat=truetype:size=16:antialias=false;0
+font-2 = Wuncon Siji:pixelsize=30;1
+font-3 = FontAwesome:size=8;0
+font-4 = Material Icons:pixelsize=12;1
 
-
-[bar/example]
-inherit = bar/master
 monitor = ${env:MONITOR:eDP-1}
 
-modules-left = i3
+modules-left = mpd
 modules-center = memory cpu temperature
 modules-right = filesystem wlan eth battery powermenu
 
@@ -73,15 +70,59 @@ tray-padding = 2
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-[bar/bottom]
-inherit = bar/master
+[bar/example]
+inherit = bar/master-top
+monitor = ${env:MONITOR:eDP-1}
+
+[bar/top-monitor]
+inherit = bar/master-top
 monitor = ${env:MONITOR:HDMI1}
-monitor-fallback = eDP-1
+
+
+[bar/master-bottom]
+wm-restack = i3
+width = 100%
+height = 27
+;offset-x = 1%
+;offset-y = 0%
+radius = 3.0
+fixed-center = false
+
+background = #4D000000
+foreground = #ccffffff
+
+line-size = 3
+line-color = #f00
+
+border-size = 10
+border-bottom-size = 5
+border-color = #00000000
+
+padding-left = 3
+padding-right = 2
+padding-bottom = 3
+
+# module-margin-left = 2
+module-margin-right = 4
 bottom = true
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = Wuncon Siji:pixelsize=12;1
+font-3 = FontAwesome:size=8;0
+font-4 = Material Icons:pixelsize=12;1
 
 modules-left = i3
-modules-center = mpd
+# modules-center = mpd
 modules-right = volume xbacklight  date
+
+
+[bar/bottom]
+inherit = bar/master-bottom
+monitor = ${env:MONITOR:eDP-1}
+
+[bar/bottom-monitor]
+inherit = bar/master-bottom
+monitor = ${env:MONITOR:HDMI1}
 
 [module/xwindow]
 type = internal/xwindow
@@ -135,22 +176,22 @@ label-empty-padding = 2
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-index-sort = true
-strip-wsnumbers = true
-wrapping-scroll = false
-ws-icon-0 = 1:term;
-ws-icon-1 = 2:www; 
-ws-icon-2 = 3:code;
+#index-sort = true
+# strip-wsnumbers = true
+# wrapping-scroll = false
+ws-icon-0 = ;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
 ws-icon-default = 
 
 
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #00000000
-label-mode-background = ${colors.primary}
+label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
@@ -175,16 +216,38 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>          <icon-prev>     <icon-stop>     <toggle>     <icon-next>
+# format-online = <label-song>          <icon-prev>     <icon-stop>     <toggle>     <icon-next>
+format-online = <icon-prev>   <icon-stop>   <toggle>   <icon-next>    <icon-repeat>   <icon-random>  <bar-progress>  <label-time>      <label-song>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+# icon-prev = 
+# icon-stop = 
+# icon-play = 
+# icon-pause = 
+# icon-next = 
+icon-random = 
+icon-repeat = 
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
 
 label-song-maxlen = 70
 label-song-ellipsis = true
+
+bar-progress-width = 30
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
+
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -320,7 +383,7 @@ format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full-underline = #00000000
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -358,11 +421,11 @@ type = custom/menu
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.secondary}
+# label-open-foreground = ${colors.secondary}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+# label-close-foreground = ${colors.secondary}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+# label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
@@ -389,22 +452,5 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-
-[module/workspaces]
-type = internal/i3
-enable-click = true
-enable-scroll = false
-strip-wsnumbers = true
-
-
-label-focused-padding = 1
-label-focused-foreground = #dd0c0d0e
-label-focused-background = ${colors.white}
-
-label-unfocused-padding = 1
-label-visible-padding = 1
-
-label-urgent-padding = 1
-label-urgent-background = ${colors.red}
 
 ; vim:ft=dosini

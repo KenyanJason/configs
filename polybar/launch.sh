@@ -8,5 +8,7 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch example bar
 polybar example & 
-polybar bottom
+polybar bottom &
+polybar top-monitor &
+polybar bottom-monitor 
 echo "Bars launched..."
